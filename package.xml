@@ -45,7 +45,6 @@
   <depend>roscpp</depend>
   <depend>l3_plugins</depend>
   <depend>l3_footstep_planning_plugins</depend>
-  <depend>l3_step_controller_plugins</depend>
   <!--depend>anymal_model</depend-->
   <!--depend>free_gait_ros</depend-->
 

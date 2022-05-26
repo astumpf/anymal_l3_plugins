@@ -1,16 +1,16 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(anymal_l3_plugins)
 
 #set(CMAKE_BUILD_TYPE Debug)
 #set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
-## Compile as C++11, supported in ROS Kinetic and newer
-add_compile_options(-std=c++11)
+## Compile as C++17, supported in ROS Melodic and newer
+set(CMAKE_CXX_STANDARD 17)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp l3_plugins l3_footstep_planning_plugins l3_step_controller_plugins)
+find_package(catkin REQUIRED COMPONENTS roscpp l3_plugins l3_footstep_planning_plugins)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -83,7 +83,7 @@ find_package(catkin REQUIRED COMPONENTS roscpp l3_plugins l3_footstep_planning_p
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES anymal_l3_plugins
-  CATKIN_DEPENDS roscpp l3_plugins l3_footstep_planning_plugins l3_step_controller_plugins
+  CATKIN_DEPENDS roscpp l3_plugins l3_footstep_planning_plugins
 #  DEPENDS system_lib
 )
 
