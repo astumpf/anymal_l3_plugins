@@ -1,0 +1,7 @@
+<library path="lib/libanymal_l3_plugins">
+  <class name="anymal_kinematics" type="anymal_l3::AnymalKinematicsPlugin" base_class_type="l3::KinematicsPlugin">
+    <description>
+      AnymalKinematicsPlugin: Plugin for calculating kinematics of ANYmal
+    </description>
+  </class>
+</library>

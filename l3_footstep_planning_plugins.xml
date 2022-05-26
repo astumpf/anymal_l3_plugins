@@ -1,0 +1,7 @@
+<library path="lib/libanymal_l3_plugins">
+  <class name="anymal_turning_state_generator" type="anymal_footstep_planning::AnymalTurningStateGenerator" base_class_type="l3_footstep_planning::StateGeneratorPlugin">
+    <description>
+      AnymalTurningStateGenerator: State generator to handle explicitely turning motion of ANYmal
+    </description>
+  </class>
+</library>
