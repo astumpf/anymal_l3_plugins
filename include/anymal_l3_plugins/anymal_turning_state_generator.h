@@ -29,7 +29,7 @@
 #ifndef ANYMAL_TURNING_STATE_GENERATOR_PLUGIN_H__
 #define ANYMAL_TURNING_STATE_GENERATOR_PLUGIN_H__
 
-#include <l3_footstep_planning_libs/modeling/foot_step.h>
+#include <l3_footstep_planning_libs/modeling/foot_step_action.h>
 
 #include <l3_footstep_planning_plugins/base/use_mask_generator_plugin.h>
 #include <l3_footstep_planning_plugins/std/state_generator/polygonal_state_generator.h>
@@ -42,8 +42,8 @@ class AnymalTurningStateGenerator
   : public UseMaskGeneratorPlugin
   , public PolygonalStateGenerator
 {
-  typedef std::pair<const FootIndex, std::vector<FootStep>> FootStepSetPair;
-  typedef std::map<FootIndex, std::vector<FootStep>> FootStepSetMap;
+  typedef std::pair<const FootIndex, std::vector<FootStepAction>> FootStepActionSetPair;
+  typedef std::map<FootIndex, std::vector<FootStepAction>> FootStepActionSetMap;
 
 public:
   AnymalTurningStateGenerator();
@@ -79,8 +79,8 @@ protected:
   double min_weight_;
 
   // The set of footsteps used
-  FootStepSetMap footstep_set_left_turn_;
-  FootStepSetMap footstep_set_right_turn_;
+  FootStepActionSetMap footstep_actions_left_turn_;
+  FootStepActionSetMap footstep_actions_right_turn_;
 
   // parameters for trigger turning when in goal
   double max_goal_dist_sq_;

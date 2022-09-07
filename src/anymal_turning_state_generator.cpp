@@ -110,16 +110,16 @@ bool AnymalTurningStateGenerator::loadParams(const vigir_generic_params::Paramet
         if (front_legs)
         {
           if (y < 0)
-            footstep_set_right_turn_[foot_idx].push_back(FootStep(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
+            footstep_actions_right_turn_[foot_idx].push_back(FootStepAction(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
           else
-            footstep_set_left_turn_[foot_idx].push_back(FootStep(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
+            footstep_actions_left_turn_[foot_idx].push_back(FootStepAction(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
         }
         else
         {
           if (y < 0)
-            footstep_set_left_turn_[foot_idx].push_back(FootStep(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
+            footstep_actions_left_turn_[foot_idx].push_back(FootStepAction(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
           else
-            footstep_set_right_turn_[foot_idx].push_back(FootStep(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
+            footstep_actions_right_turn_[foot_idx].push_back(FootStepAction(neutral_stance, foot_idx, res.toContX(x), res.toContY(y), 0.0, 0.0, res));
         }
       }
     }
@@ -149,7 +149,7 @@ std::list<StateGenResult> AnymalTurningStateGenerator::generatePredStateResults(
       dyaw = shortestAngularDistance(current.getFeetCenter().yaw(), heading);
   }
 
-  const FootStepSetMap& footsteps = dyaw > 0.0 ? footstep_set_left_turn_ : footstep_set_right_turn_;
+  const FootStepActionSetMap& footsteps = dyaw > 0.0 ? footstep_actions_left_turn_ : footstep_actions_right_turn_;
 
   return PolygonalStateGenerator::generatePredFootholds(state, state_expansion_idx, footsteps);
 }
@@ -175,7 +175,7 @@ std::list<StateGenResult> AnymalTurningStateGenerator::generateSuccStateResults(
       dyaw = shortestAngularDistance(current.getFeetCenter().yaw(), heading);
   }
 
-  const FootStepSetMap& footsteps = dyaw > 0.0 ? footstep_set_left_turn_ : footstep_set_right_turn_;
+  const FootStepActionSetMap& footsteps = dyaw > 0.0 ? footstep_actions_left_turn_ : footstep_actions_right_turn_;
 
   return PolygonalStateGenerator::generateSuccFootholds(state, state_expansion_idx, footsteps);
 }
