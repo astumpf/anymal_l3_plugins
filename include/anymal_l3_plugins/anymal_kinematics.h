@@ -61,7 +61,7 @@ public:
   Pose calcFeetCenter(const FootholdArray& footholds) const  override;
   Pose calcFeetCenter(const FootholdConstPtrArray& footholds) const override;
 
-  bool calcLegIK(const Pose& base_pose, const Foothold& foothold, const RobotDescription& description, const std::vector<double>& cur_q, std::vector<double>& q) const override;
+  bool calcLegIK(const Pose& base_pose, const Foothold& foothold, const std::vector<double>& cur_q, std::vector<double>& q) const override;
 
 protected:
   std::vector<std::vector<double>> neutral_stance_;

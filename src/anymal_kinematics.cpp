@@ -68,14 +68,13 @@ Pose AnymalKinematicsPlugin::calcFeetCenter(const FootholdConstPtrArray& foothol
   return calcFeetCenter(temp);
 }
 
-bool AnymalKinematicsPlugin::calcLegIK(const Pose& base_pose, const Foothold& foothold, const RobotDescription& description, const std::vector<double>& cur_q,
-                                       std::vector<double>& q) const
+bool AnymalKinematicsPlugin::calcLegIK(const Pose& base_pose, const Foothold& foothold, const std::vector<double>& cur_q, std::vector<double>& q) const
 {
-  // give better start point for KDL
+  // provide better start point for KDL
   if (cur_q.empty() && foothold.idx < neutral_stance_.size())
-    return KdlKinematics::calcLegIK(base_pose, foothold, description, neutral_stance_[foothold.idx], q);
+    return KdlKinematics::calcLegIK(base_pose, foothold, neutral_stance_[foothold.idx], q);
   else
-    return KdlKinematics::calcLegIK(base_pose, foothold, description, cur_q, q);
+    return KdlKinematics::calcLegIK(base_pose, foothold, cur_q, q);
 }
 }  // namespace anymal_l3
 
